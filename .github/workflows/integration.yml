@@ -32,7 +32,7 @@ jobs:
         with:
           filename: assets-v${{ github.run_number }}.zip
       - name: Create GitHub release
-      id: create-new-release
+        id: create-new-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
