@@ -1,0 +1,25 @@
+{
+  "name": "ncbi-design-system",
+  "version": "1.0.0",
+  "description": "NCBI Design System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NCBI-Codeathons/nds1-team-2-design-package.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NCBI-Codeathons/nds1-team-2-design-package/issues"
+  },
+  "homepage": "https://github.com/NCBI-Codeathons/nds1-team-2-design-package#readme",
+  "dependencies": {
+    "@uswds/uswds": "^3.3.0"
+  },
+  "devDependencies": {
+    "@uswds/compile": "^1.0.0-beta.3"
+  }
+}
