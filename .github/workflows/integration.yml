@@ -32,9 +32,19 @@ jobs:
         with:
           filename: assets-v${{ github.run_number }}.zip
       - name: Create GitHub release
+      id: create-new-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ github.run_number }}
           release_name: Release v${{ github.run_number }}
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-new-releas.outputs.upload_url }}
+          asset_path: assets-v${{ github.run_number }}.zip
+          asset_name: assets-v${{ github.run_number }}.zip
+          asset_content_type: application/zip
