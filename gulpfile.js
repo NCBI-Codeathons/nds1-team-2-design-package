@@ -25,7 +25,7 @@ uswds.paths.dist.theme = "./sass";
  * Add as many as you need
  * See documentation here: https://github.com/uswds/uswds-compile/
  */
-
+// USWDS compile functions
 exports.init = uswds.init;
 exports.compile = uswds.compile;
 exports.copyAssets = uswds.copyAssets;
