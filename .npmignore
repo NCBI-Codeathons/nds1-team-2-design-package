@@ -1,0 +1,9 @@
+*
+!src/
+!src/theme/
+!src/theme/fonts/
+!src/theme/fonts/*
+!src/theme/sass/
+!src/theme/sass/*
+!src/theme/sass/components/
+!src/theme/sass/components/*
