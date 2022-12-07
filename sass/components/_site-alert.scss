@@ -1,21 +1,21 @@
-.usa-alert__body {
-    // Applies alt focus color to rich text links and also list item links
-    .usa-site-alert--emergency & a:focus {
-        outline: 4px solid #9bdaf1;
+.usa-alert__body { /* stylelint-disable selector-class-pattern */
+  // Applies alt focus color to rich text links and also list item links
+  .usa-site-alert--emergency & a:focus {
+    outline: 4px solid #9bdaf1;
+  }
+
+  div {
+    p {
+      // @extend .ncbi-text-body-two;
     }
 
-    div {
-        p {
-            // @extend .ncbi-text-body-two;
-        }
-
-        p:last-child,
-        ul:last-child {
-            margin-bottom: 0;
-        }
-
-        ul {
-            padding-left: units(2);
-        }
+    ul {
+      padding-left: units(2);
     }
+
+    p:last-child,
+    ul:last-child {
+      margin-bottom: 0;
+    }
+  }
 }

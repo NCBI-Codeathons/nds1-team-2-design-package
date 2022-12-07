@@ -76,29 +76,29 @@ USWDS with settings overrides
 
   // Installing the font for one font type (sans) loads the Roboto files for all other types (serif, mono)
   $theme-font-sans-custom-src:
-    (
-      "dir": "roboto",
-      "roman": (
-        100: false,
-        200: false,
-        300: "roboto-v30-latin-300",
-        400: "roboto-v30-latin-regular",
-        500: false,
-        600: false,
-        700: "roboto-v30-latin-700",
-        800: false,
-        900: false,
-      ),
-      "italic": (
-        100: false,
-        200: false,
-        300: false,
-        400: "roboto-v30-latin-italic",
-        500: false,
-        600: false,
-        700: false,
-        800: false,
-        900: false,
-      ),
-    )
+  (
+    "dir": "roboto",
+    "roman": (
+      100: false,
+      200: false,
+      300: "roboto-v30-latin-300",
+      400: "roboto-v30-latin-regular",
+      500: false,
+      600: false,
+      700: "roboto-v30-latin-700",
+      800: false,
+      900: false,
+    ),
+    "italic": (
+      100: false,
+      200: false,
+      300: false,
+      400: "roboto-v30-latin-italic",
+      500: false,
+      600: false,
+      700: false,
+      800: false,
+      900: false,
+    ),
+  )
 );
