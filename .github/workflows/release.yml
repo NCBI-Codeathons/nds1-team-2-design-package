@@ -2,7 +2,7 @@ name: Build release
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   compile-uswds-assets:
     name: Compile USWDS assets
