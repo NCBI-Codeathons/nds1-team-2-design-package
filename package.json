@@ -4,7 +4,11 @@
   "description": "NCBI Design System",
   "main": "index.js",
   "scripts": {
-    "stylelint": "npx stylelint \"**/*.scss\"",
+    "build": "gulp build",
+    "compile": "gulp compile",
+    "watch": "gulp watch",
+    "format": "prettier --write \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml}\"",
+    "lint": "npx stylelint \"**/*.scss\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,7 +26,9 @@
   },
   "devDependencies": {
     "@uswds/compile": "^1.0.0-beta.3",
+    "prettier": "2.8.0",
     "stylelint": "^14.16.0",
+    "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard-scss": "^6.1.0"
   }
 }

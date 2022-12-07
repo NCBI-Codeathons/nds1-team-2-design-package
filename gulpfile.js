@@ -12,7 +12,7 @@ uswds.settings.version = 3;
  * See documentation here: https://github.com/uswds/uswds-compile/
  */
 
-uswds.paths.src.fonts = "./fonts"
+uswds.paths.src.fonts = "./fonts";
 
 uswds.paths.dist.css = "./assets/css";
 uswds.paths.dist.fonts = "./assets/fonts";
@@ -30,5 +30,5 @@ exports.init = uswds.init;
 exports.compile = uswds.compile;
 exports.copyAssets = uswds.copyAssets;
 exports.watch = uswds.watch;
-exports.update = uswds.updateUswds;
+exports.build = uswds.updateUswds;
 exports.copyFonts = uswds.copyFonts;

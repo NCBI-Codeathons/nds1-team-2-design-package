@@ -1,6 +1,10 @@
 @forward "uswds-theme";
 @forward "uswds";
 @forward "uswds-theme-custom-styles";
-@forward "components/site-alert";
 
-// @forward "components/collection";
+// Load the custom NCBI style setup
+@import "ncbi-settings";
+@import "ncbi-typography";
+
+// Load the custom NCBI style components
+@import "components/site-alert";

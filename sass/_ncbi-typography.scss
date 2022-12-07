@@ -1,0 +1,100 @@
+@use "uswds-core" as *;
+
+// Titles
+.ncbi-text-h1 {
+    font-size: size("body", 13);
+    font-weight: $theme-font-weight-light;
+
+    @include at-media("tablet") {
+        font-size: size("body", 15);
+        letter-spacing: 0.2px;
+    }
+}
+
+.ncbi-text-h2 {
+    @include typeset("body", "xl", 2);
+    // The closest size setting to 30px (xl) is actually 32px: this is overridden with the REM value for 30px below.
+    font-size: 1.875rem;
+    font-weight: $theme-font-weight-light;
+    letter-spacing: 0.2px;
+    margin-bottom: units(3);
+
+    @include at-media("tablet") {
+        @include typeset("body", 13, 2);
+        letter-spacing: 0.1px;
+        margin-bottom: units(2.5);
+    }
+}
+
+.ncbi-text-h3 {
+    @include typeset("body", 10, 2);
+    font-weight: $theme-font-weight-normal;
+    margin-bottom: units(3);
+
+    @include at-media("tablet") {
+        @include typeset("body", 11, 2);
+        margin-bottom: units(2.5);
+    }
+}
+
+.ncbi-text-h4 {
+    @include typeset("body", 8, 2);
+    font-weight: $theme-font-weight-bold;
+    letter-spacing: 0.15px;
+
+    @include at-media("tablet") {
+        @include typeset("body", 10, 2);
+    }
+}
+
+.ncbi-text-h5 {
+    @include typeset("body", 8, 2);
+    font-weight: $theme-font-weight-bold;
+    letter-spacing: 0.15px;
+}
+
+// Body Text
+.ncbi-text-body-one {
+    @include typeset("body", "sm", 5);
+    letter-spacing: 0.5px;
+    max-width: $theme-body-1-text-max-width;
+
+    @include at-media("tablet") {
+        @include typeset("body", 8, 5);
+    }
+}
+
+.ncbi-text-body-two {
+    @include typeset("body", "sm", 5);
+    letter-spacing: 0.5px;
+    max-width: $theme-body-2-text-max-width-mobile;
+
+    @include at-media("tablet") {
+        max-width: $theme-body-2-text-max-width-desktop;
+    }
+}
+
+.ncbi-text-body-three {
+    @include typeset("body", "2xs", 4);
+    letter-spacing: 0.25px;
+    max-width: $theme-body-2-text-max-width-mobile;
+}
+
+// Navigation
+.ncbi-text-nav-link {
+    @extend .usa-nav__link;
+
+    @include at-media("desktop") {
+        // Button padding height set by USWDS, so line height set to 1 here.
+        @include typeset("body", "sm", 1);
+        font-weight: $theme-font-weight-bold;
+        letter-spacing: 1.25px;
+    }
+}
+
+// Buttons
+.ncbi-text-button {
+    @include typeset("body", "sm", 1);
+    font-weight: $theme-font-weight-bold;
+    letter-spacing: 0.2px;
+}
