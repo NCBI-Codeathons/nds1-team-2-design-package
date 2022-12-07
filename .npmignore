@@ -2,3 +2,5 @@
 !src/theme/fonts/*/*
 !src/theme/sass/*
 !src/theme/sass/*/*
+!docs/*
+!docs/*/*
