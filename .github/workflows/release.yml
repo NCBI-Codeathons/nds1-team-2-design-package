@@ -1,5 +1,8 @@
-name: Build assets
-on: push
+name: Build release
+on:
+  push:
+    branches:
+      - master
 jobs:
   compile-uswds-assets:
     name: Compile USWDS assets
@@ -7,8 +10,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install NPM dependencies
-        run: npm install
+      - name: Set up node version
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Create node cache, install if not found
+        id: node-cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/.nvmrc') }}-${{ hashFiles('**/package-lock.json') }}
+      - if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm install --no-audit --no-fund --progress=false
       - name: Copy project assets
         run: npx gulp copyAssets
       - name: Compile project SCSS
