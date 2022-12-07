@@ -12,13 +12,13 @@ uswds.settings.version = 3;
  * See documentation here: https://github.com/uswds/uswds-compile/
  */
 
-uswds.paths.src.fonts = "./fonts";
+uswds.paths.src.fonts = "./src/theme/fonts";
 
 uswds.paths.dist.css = "./assets/css";
 uswds.paths.dist.fonts = "./assets/fonts";
 uswds.paths.dist.js = "./assets/js";
 uswds.paths.dist.img = "./assets/img";
-uswds.paths.dist.theme = "./sass";
+uswds.paths.dist.theme = "./src/theme/sass";
 
 /**
  * Exports

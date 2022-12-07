@@ -5,7 +5,6 @@ USWDS settings overrides
 */
 
 @use "uswds-core" with (
-    $theme-font-path: "/fonts",
     // $theme-image-path: "~/node_modules/@uswds/uswds/dist/img",
     $theme-grid-container-max-width: "desktop",
 
@@ -43,14 +42,14 @@ USWDS settings overrides
         "tablet-lg": false,
         "desktop": true,
         "desktop-lg": false,
-        "widescreen": false,
+        "widescreen": false
     ),
     $theme-typeface-tokens: (
         roboto: (
             display-name: "Roboto",
             cap-height: 358px,
             // Calculated from https://codepen.io/sebdesign/pen/EKmbGL?editors=0012
-        ),
+        )
     ),
     // NCBI's font stack only uses Roboto, hence why Roboto Mono and Roboto Serif is not installed here.
     $theme-font-type-sans: "roboto",
@@ -90,6 +89,6 @@ USWDS settings overrides
                 700: false,
                 800: false,
                 900: false,
-            ),
+            )
         )
 );
