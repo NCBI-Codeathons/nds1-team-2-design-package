@@ -1,0 +1,30 @@
+@use "uswds-core" as *;
+
+.usa-collection {
+    &__heading {
+        @extend .ncbi-text-h5;
+
+        // Adjusting the line height to render external link icons correctly.
+        line-height: line-height("heading", 5);
+    }
+
+    &__description {
+        @extend .ncbi-text-body-two;
+        margin: units(1) 0 units(1.5) 0;
+    }
+
+    &__item {
+        max-width: $theme-body-2-text-max-width-desktop;
+    }
+
+    &__meta-item {
+        @extend .ncbi-text-body-three;
+        color: $theme-color-background-gray;
+    }
+
+    &__meta-item.usa-tag {
+        &--new {
+            background-color: color("secondary-dark");
+        }
+    }
+}
