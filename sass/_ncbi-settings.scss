@@ -1,0 +1,19 @@
+// Custom theme variables
+$theme-color-primary-alt-light: #9bdaf1;
+
+$theme-color-background-gray: #5b616b;
+$theme-color-light-gray: #f1f1f1;
+$theme-color-button-border: #2491ff;
+
+$theme-color-beta-green: #2e8540;
+
+// Custom transparent colors used specifically for inverse button active states.
+$theme-active-inverse-button-background: rgba(0, 113, 188, 0.7);
+$theme-active-inverse-button-background-alt: rgba(255, 255, 255, 0.8);
+
+// The alt outline is used in the header, footer and emergency alert
+$theme-outline-alt: 4px solid $theme-color-primary-alt-light;
+
+$theme-body-1-text-max-width: 735px;
+$theme-body-2-text-max-width-mobile: 615px;
+$theme-body-2-text-max-width-desktop: 633px;

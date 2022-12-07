@@ -1,0 +1,69 @@
+@use "uswds-core" as *;
+
+.usa-site-alert {
+    // When one alert of the same type is followed by another, give the second alert a margin
+    // to separate the two alerts visually
+    &--info ~ &--info,
+    &--emergency ~ &--emergency {
+        margin-top: units(0.5);
+    }
+
+    // Override link hover color as this isn't set by $theme-link-hover-color
+    &--info {
+        .usa-alert .usa-link:hover {
+            color: color("primary-darker");
+        }
+    }
+}
+
+// Remove margin added before alert
+* + .usa-site-alert .usa-alert {
+    margin-top: 0;
+}
+
+.usa-alert {
+    border-left: unset;
+    margin-top: 0;
+
+    // Adjust tablet padding to align with 30px margins for all other page content
+    @include at-media("tablet") {
+        padding-left: units(1.5);
+        padding-right: units(1.5);
+    }
+}
+
+.usa-site-alert--info .usa-alert::before,
+.usa-site-alert--emergency .usa-alert::before {
+    // Nudge alert icon to the right to align with the NCBI tablet padding
+    @include at-media("tablet") {
+        left: 1.75rem;
+    }
+
+    // Reset to original style on desktop
+    @include at-media("desktop") {
+        left: units(4);
+    }
+}
+
+.usa-alert__body {
+    /* stylelint-disable selector-class-pattern */
+    // Applies alt focus color to rich text links and also list item links
+    .usa-site-alert--emergency & a:focus {
+        outline: 4px solid #9bdaf1;
+    }
+
+    div {
+        p {
+            @extend .ncbi-text-body-two;
+        }
+
+        ul {
+            padding-left: units(2);
+        }
+
+        p:last-child,
+        ul:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
