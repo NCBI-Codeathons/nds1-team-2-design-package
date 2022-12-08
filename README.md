@@ -87,8 +87,8 @@ Next, create an `index.scss` file, the root from which all your project styles w
 @import "ncbi-typography";
 
 // Load the custom NCBI component styles
-@import "components/site-alert";
-@import "components/collection";
+@import "ncbi-components/site-alert";
+@import "ncbi-components/collection";
 ```
 
 For documentation on how to modify or add to these styles, please read [the customizing styles documentation](/docs/customizing-styles.md).
