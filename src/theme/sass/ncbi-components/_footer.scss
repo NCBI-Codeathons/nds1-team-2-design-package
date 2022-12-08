@@ -1,4 +1,5 @@
 @use "uswds-core" as *;
+
 .ncbi-footer {
     z-index: z-index(300);
     color: color("white");
@@ -42,16 +43,31 @@
 
     &__address {
         a.usa-link {
-            @extend .ncbi-footer__link;
+            &,
+            &:visited {
+                color: $theme-color-light-gray;
+            }
+
+            &:hover,
+            &:active {
+                color: $theme-color-primary-alt-light;
+            }
 
             &:focus {
                 outline: $theme-outline-alt;
             }
         }
 
+        a.usa-link--external {
+            // Add margin to keep external link icon appended to the end of the link text
+            display: inline-block;
+            position: relative;
+            margin-right: 0.5rem;
+            padding-right: 1.75ex;
+        }
+
         p {
             @extend .ncbi-text-body-two;
-            line-height: 1.5 !important; // Override from 1.6 to match Figma designs
             margin: 0;
         }
     }
@@ -218,5 +234,17 @@
             padding: 0 0.5rem;
             margin: 0;
         }
+    }
+}
+
+// Override for the external link icon render style on the footer links
+// This is required as we've changed the line height for these links to match designs
+.usa-link--external.usa-link--alt.ncbi-footer__link {
+    // Extra right margin added for the horizontal row of links at the bottom of the footer
+    // Otherwise the external link icon intersects with the vertical divider lines
+    margin-right: units(1);
+
+    &::after {
+        margin-top: 0.2ex;
     }
 }

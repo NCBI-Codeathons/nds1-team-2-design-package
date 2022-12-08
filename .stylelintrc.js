@@ -13,6 +13,7 @@ module.exports = {
         "alpha-value-notation": null,
         "scss/at-extend-no-missing-placeholder": null,
         "scss/double-slash-comment-empty-line-before": null,
+        "declaration-block-no-redundant-longhand-properties": null,
 
         "color-named": "never",
         "number-leading-zero": "always",
