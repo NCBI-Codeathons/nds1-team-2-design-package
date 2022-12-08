@@ -1,0 +1,29 @@
+@use "uswds-core" as *;
+.ncbi-card {
+    // adds vertical 20px grid layout spacing to stacked cards
+    margin-bottom: units(2.5);
+
+    // overrides USWDS last-child margin to ensure last two cards have equal height when shown in a row
+    &:last-child {
+        margin-bottom: units(2.5);
+    }
+
+    &__heading {
+        @extend .ncbi-text-h3;
+    }
+
+    &__description {
+        @extend .ncbi-text-body-two;
+    }
+
+    &__img-container {
+        background-color: color("white");
+        margin: auto;
+
+        img {
+            margin: auto;
+            width: 8rem;
+            height: 8rem;
+        }
+    }
+}

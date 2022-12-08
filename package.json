@@ -7,7 +7,7 @@
     "build": "gulp build",
     "compile": "gulp compile",
     "watch": "gulp watch",
-    "format": "prettier --write \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml,html}\"",
+    "format": "prettier --write \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml,html}\" --html-whitespace-sensitivity ignore",
     "lint": "npm run lint:format && npm run lint:scss",
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:format": "prettier --check \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml,html}\"",
