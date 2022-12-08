@@ -1,0 +1,222 @@
+@use "uswds-core" as *;
+.ncbi-footer {
+    z-index: z-index(300);
+    color: color("white");
+    background: color("primary-dark");
+    margin-top: units(2.5);
+
+    @include at-media("tablet") {
+        margin-top: units(7);
+    }
+
+    &__container {
+        padding: units(2.5);
+        @include at-media("tablet") {
+            padding: units(6) units(4) units(2) units(4);
+        }
+    }
+
+    &__main-content-container {
+        line-height: 1.5;
+        flex-direction: column;
+        width: 100%;
+        gap: units(1.5);
+        flex-wrap: nowrap;
+
+        @include at-media("tablet") {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: units(2.5);
+        }
+    }
+
+    &__column {
+        // Adding a max-width constraint so that items can size down and create space for other items to expand
+        // But if the content is too long, it doesn't expand so far as to break designs
+        max-width: 50%;
+
+        @include at-media("tablet") {
+            max-width: 25%;
+        }
+    }
+
+    &__address {
+        a.usa-link {
+            @extend .ncbi-footer__link;
+
+            &:focus {
+                outline: $theme-outline-alt;
+            }
+        }
+
+        p {
+            @extend .ncbi-text-body-two;
+            line-height: 1.5 !important; // Override from 1.6 to match Figma designs
+            margin: 0;
+        }
+    }
+
+    &__link {
+        @extend .ncbi-text-body-two;
+        line-height: 1.15;
+        margin-bottom: units("05");
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &,
+        &:visited {
+            color: $theme-color-light-gray;
+        }
+
+        &:hover,
+        &:active {
+            color: $theme-color-primary-alt-light;
+        }
+
+        &:focus {
+            outline: $theme-outline-alt;
+        }
+    }
+
+    &__icon-section {
+        background-color: color("gray-warm-10");
+    }
+
+    &__social-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: units(2) units(4);
+        background: color("blue-warm-50");
+        text-transform: uppercase;
+        font-size: size("body", 8);
+        font-weight: font-weight("bold");
+    }
+
+    &__circled-icons-list {
+        display: flex;
+        gap: units(1.5);
+    }
+
+    &__circled-icons-heading {
+        margin: 0 0 units(1.5) 0;
+    }
+
+    &__ncbi-social-icons-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: units(10);
+        padding: 0 units(4);
+    }
+
+    &__social-icon {
+        display: flex;
+        border-radius: 50%;
+
+        svg {
+            margin: auto;
+        }
+
+        &--circled {
+            width: 34.3px;
+            height: 34.3px;
+            border: 1px solid color("white");
+
+            path {
+                fill: color("white");
+            }
+
+            &:focus {
+                outline: $theme-outline-alt;
+            }
+
+            &:hover {
+                background-color: color("white");
+
+                path {
+                    fill: color("primary-dark");
+                    // Adding extra 1px stroke effect to counter visual illusion of icon shrinking on hover
+                    stroke: color("primary-dark");
+                }
+            }
+        }
+
+        &--gray {
+            width: 40px;
+            height: 40px;
+
+            path {
+                fill: $theme-color-background-gray;
+            }
+
+            &:hover {
+                background-color: $theme-color-background-gray;
+
+                path {
+                    fill: color("white");
+                }
+            }
+        }
+    }
+
+    &__vertical-list {
+        line-height: 1.5;
+    }
+
+    &__vertical-list-item {
+        line-height: 1;
+
+        .usa-list--unstyled > & {
+            // The minimum gap between links required to prevent tap-target accessibility issues.
+            // Note that 12px is almost good enough, but doesn't work when two external link icons are stacked
+            margin-bottom: 14px;
+
+            @include at-media("tablet") {
+                margin-bottom: 8px;
+            }
+
+            &:first-child {
+                // Align the first vertical list item with the address
+                margin-top: 3px;
+            }
+        }
+    }
+
+    &__bottom-links-list {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding-left: 0;
+        margin: units(2) 0 0 0;
+
+        @include at-media("tablet") {
+            margin: units(4) auto 0 auto;
+        }
+    }
+
+    &__bottom-list-item {
+        position: relative;
+
+        &:first-child {
+            padding-left: 0;
+
+            a {
+                padding-left: 0;
+            }
+        }
+
+        &:not(:last-child) {
+            border-right: color("white") solid units(1px);
+        }
+
+        a {
+            display: inline-block;
+            padding: 0 0.5rem;
+            margin: 0;
+        }
+    }
+}
