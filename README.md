@@ -101,7 +101,7 @@ Your build process should now be able to compile `index.scss` into the NCBI styl
 - `[uswds-compile](https://github.com/uswds/uswds-compile)` builds the releases of this project, compiling SCSS and copying assets.
 - Github Actions builds and publishes the release files automatically when code is pushed to `main`.
 
-![alt text](./docs/images/workflow.png)
+![workflow](docs/images/workflow.png)
 
 ## Contributing to this package
 
