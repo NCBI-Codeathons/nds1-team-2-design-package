@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## [2.0.1] - 12-08-2022
+
+### Added
+
+- footer component
+
+### Changed
+
+- updated docs and release
+
 ## [2.0.0] - 12-08-2022
 
 ### Added
