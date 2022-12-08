@@ -1,8 +1,12 @@
-@forward "uswds-theme";
-@forward "uswds";
-@forward "uswds-theme-custom-styles";
+// Note that the release theme is identical to the ncbi theme,
+// except that the ncbi theme uses USWDS asset paths relative to node_modules.
+// As we're building our assets locally when creating releases, we can use the default asset path settings.
+@forward "release-theme";
 
-// Load the custom NCBI style setup
+// USWDS loaded from node_modules
+@forward "uswds";
+
+// Load the custom NCBI setup
 @import "ncbi-settings";
 @import "ncbi-typography";
 
