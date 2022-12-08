@@ -2,9 +2,9 @@
 
 NCBI-themed [USWDS](https://designsystem.digital.gov/)!
 
-- USWDS settings are overridden in `/_uswds-theme.scss`.
+- USWDS theme settings are set to NCBI defaults in `/_ncbi-theme.scss`.
 - Roboto has been installed as the default font.
-- Color themes based on specification at https://www.ncbi.nlm.nih.gov/style-guide/basics/colors/
+- Color themes follow the NCBI specification at https://www.ncbi.nlm.nih.gov/style-guide/basics/colors/
 
 ## Requirements
 
@@ -20,41 +20,103 @@ NCBI-themed [USWDS](https://designsystem.digital.gov/)!
 - Pradeep Chand
   - 9:00 am – 5:00 pm US / 2:00 pm - 10:00 pm UK
 
-Since the team members are working in diferent timezones, we have agreed upon following work handoff protocol:
+Since the team members are working in different timezones, we have agreed upon following work handoff protocol:
 
-- Each developr will work on a feature branch and create a pull request for any completed feature for other developer to review
+- Each developer will work on a feature branch and create a pull request for any completed feature for other developer to review
 - Other developer will review the pull request, make necessary changes and merge the changes.
 - The other developer will start new work off the merged code base.
 
 ## How to use
 
-For now, developes can find the latest release of the package in ZIP format at following location:
+### Install via direct download
 
-- Under repository go to `Actions`.
-- In the left sidebar, click on `Build assets` workflow.
-- From the list of workflow runs, click the name of the run to see the workflow run summary.
-- Under Artifacts, click on `uswds-assets`.
+Developers can download all NWDS assets (including CSS, JavaScript, fonts and icons) from the latest release in [the repository releases page](https://github.com/NCBI-Codeathons/nds1-team-2-design-package/releases).
 
-To find how to include NWDS package in your webpage, you can look at `/index.html`.
+These assets can be added to a webpage in the following manner:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include meta-tags here -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <script src="/assets/js/uswds-init.min.js"></script>
+  </head>
+  <body>
+    <!--
+      Include your USWDS components here.
+      If they include a reference to an icon which isn't loading, you can update the `src` to the correct asset path.
+      Favicons, icons and images can be found in `/assets/img`.
+    -->
+    <script src="/assets/js/uswds.min.js"></script>
+  </body>
+</html>
+```
+
+### Install via NPM
+
+Installing via NPM with your own build process allows you to create further custom styles on top of NWDS.
+
+First, run `npm install ncbi-design-system @uswds/uswds'
+
+Update your build process so the Sass compiler can find the project SCSS files. Here's an example configuration for WebPack `sass-loader`.
+
+```js
+{
+  loader: "sass-loader",
+  options: {
+    sassOptions: {
+      includePaths: [
+        "./node_modules/@uswds/uswds/packages",
+        "./node_modules/ncbi-design-system/src/theme/sass",
+      ],
+    },
+  },
+},
+```
+
+Next, create an `index.scss` file, the root from which all your project styles will be compiled.
+
+```scss
+// Load the USWDS styles with the NCBI theme settings applied.
+@forward "ncbi-theme";
+@forward "uswds";
+
+// Load extra NCBI specific custom styles and settings
+@import "ncbi-settings";
+@import "ncbi-typography";
+
+// Load the custom NCBI component styles
+@import "components/site-alert";
+@import "components/collection";
+```
+
+For documentation on how to modify or add to these styles, please read [the customizing styles documentation](/docs/customizing-styles.md).
+
+Your build process should now be able to compile `index.scss` into the NCBI styles. For an example build process using Webpack, [see the NCBI Django Reference App](https://github.com/NCBI-Codeathons/nds1-team-3-reference-app). This project uses [`uswds-compile`](/gulpfile.js) to build releases with Gulp - this approach will need some adaptation to include the NCBI design system node_module path when compiling the SCSS, as well as updates to `uswds.paths.src` settings.
 
 ## Architecture
 
-- USWDS is the main component of this package.
-- [USWDS compile](https://github.com/uswds/uswds-compile) package is used for copying USWDS static assets and transforming SASS into CSS.
-- Github Actions is used to compile and generate NWDS assets
+- This package is built on top of `@uswds/uswds` v3.3.
+- `[uswds-compile](https://github.com/uswds/uswds-compile)` builds the releases of this project, compiling SCSS and copying assets.
+- Github Actions builds and publishes the release files automatically when code is pushed to `main`.
 
 ![alt text](/docs/images/workflow.png)
 
 ## Contributing to this package
 
-Refer [uswds-compile functions documentation](https://github.com/uswds/uswds-compile#functions) to understand the role of each function.
+Override USWDS settings in `/_uswds-theme.scss` or add further custom components in `/ncbi-components`. Make sure to update `styles.scss` with an import to your new component. You can copy and paste components to `index.html` from the USWDS component library to verify that your new styles work.
 
-1. Override USWDS settings in `/_uswds-theme.scss` or add custom styles to `/_uswds-theme-custom-styles.scss`.
-1. `npm run build` - compiles Sass files and copies other USWDS assets into the `assets` directory.
-1. `npm run compile` - compiles only SCSS files, while `npm run watch` watches the SCSS files for changes and re-compiles on save.
-1. Add component template to index.html, and view whether styles are applied correctly.
-1. Run formatting and stylelint with `npm run format && npm run stylelint`
+### Commands
+
+- `npm run build` - compiles Sass files and copies other USWDS assets into the `assets` directory.
+- `npm run compile` - compiles only SCSS files
+- `npm run watch` - watches the SCSS files for changes and re-compiles on save.
+- `npm run format` - formats files with Prettier.
+- `npm run lint` - lints files with Stylelint.
+
+Refer [uswds-compile functions documentation](https://github.com/uswds/uswds-compile#functions) to understand the role of each function.
 
 ## Documentation and assets
 
-All the documentation should be stored inside `/docs/` directory and related images should be stored inside `/docs/images/`.
+Documentation is found inside `/docs/` directory and related images should be stored inside `/docs/images/`.
