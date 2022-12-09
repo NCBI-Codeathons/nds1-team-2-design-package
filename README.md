@@ -6,6 +6,10 @@ NCBI-themed [USWDS](https://designsystem.digital.gov/)!
 - Roboto has been installed as the default font.
 - Color themes follow the NCBI specification at https://www.ncbi.nlm.nih.gov/style-guide/basics/colors/
 
+A live demo of all components included in the design package can be accessed at https://ncbi-codeathons.github.io/nds1-team-2-design-package/.
+
+Note that Github Pages deployments need to be active on the `gh-pages` branch for this to be accessible, otherwise this will show a 404.
+
 ## Requirements
 
 - Node.js (v16.x.x)
