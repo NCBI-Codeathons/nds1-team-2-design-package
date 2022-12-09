@@ -2,7 +2,7 @@ name: Deploy storybook to GitHub Pages
 on:
   push:
     branches:
-      - host-storybook-on-github-pages
+      - main
 jobs:
   deploy-storybook:
     name: Compile and deploy storybook
