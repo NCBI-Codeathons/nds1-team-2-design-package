@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [2.2.0] - 12-08-2022
+
+### Added
+
+- banner component
+- card component
+
 ## [2.1.0] - 12-08-2022
 
 ### Added

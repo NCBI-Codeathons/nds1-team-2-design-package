@@ -1,13 +1,13 @@
 {
   "name": "ncbi-design-system",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "NCBI Design System",
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
     "compile": "gulp compile",
     "watch": "gulp watch",
-    "format": "prettier --write \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml,html}\"",
+    "format": "prettier --write \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml,html}\" --html-whitespace-sensitivity ignore",
     "lint": "npm run lint:format && npm run lint:scss",
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:format": "prettier --check \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml,html}\"",

@@ -82,6 +82,8 @@
     }
 
     &__section-summary-list-link {
+        color: color("accent-cool-light");
+
         &,
         &:visited {
             color: color("white");
