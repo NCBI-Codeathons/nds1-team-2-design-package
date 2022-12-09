@@ -1,0 +1,105 @@
+@use "uswds-core" as *;
+
+.ncbi-banner {
+    $root: &;
+    background-color: color("primary-darker");
+    margin-bottom: units(6);
+
+    &--white {
+        background-color: color($theme-body-background-color);
+        margin-bottom: 0;
+
+        #{$root}__box {
+            padding: units(7) 0 units(4);
+            background-color: color($theme-body-background-color);
+            color: color($theme-text-color);
+
+            @include at-media("tablet") {
+                padding: units(4) 0 units(2);
+            }
+        }
+    }
+
+    &--with-image {
+        #{$root}__container {
+            padding: units(6) units(2.5);
+
+            @include at-media("tablet") {
+                padding: units(6) units(4);
+            }
+        }
+
+        #{$root}__box {
+            padding: units(2) units(3);
+
+            @include at-media("tablet") {
+                padding: units(4) units(5);
+            }
+        }
+    }
+
+    &__title {
+        @extend .ncbi-text-h1;
+        margin-top: 0;
+
+        &--with-intro {
+            margin-bottom: 0;
+        }
+    }
+
+    &__introduction {
+        margin-bottom: units(4);
+    }
+
+    &__introduction.rich-text {
+        p {
+            @extend .ncbi-text-body-one;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__box {
+        position: relative;
+        padding: units(2.5) 0;
+        max-width: 47rem;
+        background-color: color("primary-darker");
+        color: color("white");
+
+        @include at-media("tablet") {
+            padding: units(8) 0 units(5) 0;
+        }
+    }
+
+    &__section-summary-title {
+        @extend .ncbi-text-h5;
+    }
+
+    &__section-summary-list {
+        @extend .ncbi-text-body-two;
+    }
+
+    &__section-summary-list-link {
+        &,
+        &:visited {
+            color: color("white");
+        }
+
+        &:hover {
+            color: $theme-color-primary-alt-light;
+        }
+
+        &--dark {
+            &,
+            &:visited {
+                color: color("primary");
+            }
+
+            &:hover {
+                color: color("primary-darker");
+            }
+        }
+    }
+}
