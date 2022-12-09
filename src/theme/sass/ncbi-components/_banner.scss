@@ -84,15 +84,23 @@
     &__section-summary-list-link {
         color: color("accent-cool-light");
 
+        &,
+        &:visited {
+            color: color("white");
+        }
+
         &:hover {
-            color: color("blue-cool-30");
+            color: $theme-color-primary-alt-light;
         }
 
         &--dark {
-            color: color("primary");
+            &,
+            &:visited {
+                color: color("primary");
+            }
 
             &:hover {
-                color: color("primary-dark");
+                color: color("primary-darker");
             }
         }
     }

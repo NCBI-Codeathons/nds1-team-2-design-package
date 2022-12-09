@@ -1,0 +1,158 @@
+@use "uswds-core" as *;
+
+$nav-link-icon-size: 2.5;
+
+// Overide USWDS styling to align menu items to the left
+/* stylelint-disable declaration-no-important */
+.usa-nav {
+    @include at-media("desktop") {
+        justify-content: flex-start !important;
+        padding-left: 0 !important;
+    }
+
+    &__primary {
+        // Add extra padding to the links in the mobile navigation menu
+        // This means they match the padding of the USWDS dropdown links
+        a:not(.usa-button) {
+            @include at-media-max("desktop") {
+                padding: units(1.5) units(2);
+            }
+        }
+
+        // Center the plus and minus icons in the USWDS mobile nav dropdown
+        // when the text spans over multiple lines.
+        button[aria-expanded="true"] span::after,
+        button[aria-expanded="false"] span::after {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @include at-media("desktop") {
+            margin-left: -1rem !important;
+
+            button {
+                border: 4px solid transparent; // Allow other navigation item outlines to show
+
+                // copy USWDS rules from react-uswds navigation.scss, override it to change background color, svg, border, etc.
+                /* stylelint-disable max-nesting-depth */
+                &[aria-expanded="true"] {
+                    &:focus {
+                        outline: none;
+                        border-color: $theme-color-button-border
+                            $theme-color-button-border color("white")
+                            $theme-color-button-border;
+                    }
+
+                    @include at-media($theme-header-min-width) {
+                        @include add-background-svg("usa-icons/expand_less");
+                        @include add-knockout-font-smoothing();
+                        background-size: units($nav-link-icon-size);
+                        background-color: color("white");
+                        background-position: right units(1.5) top 53%;
+                    }
+                }
+
+                &[aria-expanded="false"] {
+                    &:focus {
+                        outline: none;
+                        border-color: $theme-color-button-border
+                            $theme-color-button-border color("white")
+                            $theme-color-button-border;
+                    }
+
+                    @include at-media($theme-header-min-width) {
+                        @include add-background-svg("usa-icons/expand_more");
+                        @include add-knockout-font-smoothing();
+                        background-size: units($nav-link-icon-size);
+                        background-color: color("white");
+                        background-position: right units(1.5) top 53%;
+                    }
+                }
+            }
+
+            // Hide the default USWDS dropdown icons
+            button[aria-expanded="true"] span::after,
+            button[aria-expanded="false"] span::after {
+                display: none;
+            }
+        }
+    }
+
+    &__primary-item {
+        @include at-media("desktop") {
+            position: relative;
+            z-index: 1;
+
+            a {
+                margin-top: units("05");
+            }
+        }
+    }
+
+    &__submenu {
+        @include at-media("desktop") {
+            z-index: -1;
+            left: units(2px);
+            padding: units(2);
+            width: 294px;
+            background-color: color("white");
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &__submenu-item,
+    &__link span {
+        font-size: font-size("body", "sm");
+    }
+}
+
+// Style rule written to override USWDS colors and reset line height for external link icon
+// The use of specific :not selectors here matches the way USWDS styles this component in v3.1
+.usa-nav__submenu-item a:not(.usa-button):not(.usa-current) {
+    @extend .ncbi-text-body-three;
+    color: color("black");
+    padding: units(1) units(1) units(1) units(4);
+}
+
+.ncbi-nav {
+    &__external-link-icon {
+        display: inline;
+        width: units(1.5);
+        min-width: units(1.5);
+        height: units(1.5);
+        margin-left: units(0.5);
+        align-self: center;
+    }
+
+    &__mobile-login-button {
+        margin: units(2) 0 0 units(1);
+    }
+
+    &__link {
+        @extend .ncbi-text-nav-link;
+        @include at-media("desktop") {
+            color: color("base-dark") !important;
+        }
+    }
+
+    &__close-button {
+        position: absolute;
+        right: units(2.5);
+        forced-color-adjust: none;
+
+        @media (forced-colors: active) {
+            background-color: color("white");
+        }
+
+        &:hover {
+            background-color: $theme-color-light-gray;
+            cursor: pointer;
+        }
+
+        &:focus {
+            @media (forced-colors: active) {
+                background-color: $theme-color-primary-alt-light;
+            }
+        }
+    }
+}

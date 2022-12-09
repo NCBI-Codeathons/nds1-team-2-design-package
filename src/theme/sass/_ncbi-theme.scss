@@ -5,10 +5,12 @@ This file is designed to be used specifically when installed in another project 
 If you want to make changes to these theme settings, copy and paste this file into your project, give it a distinct name, and update your main import.
 ----------------------------------------
 */
+$font-path: "~/node_modules/ncbi-design-system/src/theme/fonts" !default;
+$image-path: "~/node_modules/@uswds/uswds/dist/img" !default;
 
 @use "uswds-core" with (
-    $theme-font-path: "~/node_modules/ncbi-design-system/src/theme/fonts",
-    $theme-image-path: "~/node_modules/@uswds/uswds/dist/img",
+    $theme-font-path: $font-path,
+    $theme-image-path: $image-path,
     $theme-grid-container-max-width: "desktop",
 
     // Color themes set following NCBI style guide

@@ -7,6 +7,7 @@
 module.exports = {
     extends: ["stylelint-config-standard-scss", "stylelint-config-prettier"],
     rules: {
+        "selector-not-notation": null, // disabled specifically for this Codeathon to aid development
         "selector-class-pattern": null, // disabled specifically for this Codeathon to aid development
         "scss/dollar-variable-empty-line-before": null,
         "color-function-notation": null,

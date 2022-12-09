@@ -1,0 +1,151 @@
+@use "uswds-core" as *;
+
+.ncbi-beta-banner {
+    $root: &;
+    background-color: $theme-color-beta-green;
+    position: relative;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: font-size("body", "md");
+        color: color("white");
+
+        // Increase specificity by checking if child of parent class
+        // This overrides other grid container class padding styles
+        #{$root} & {
+            padding-top: units(1.5);
+            padding-bottom: units(1.5);
+
+            @include at-media("desktop") {
+                padding-right: units(4);
+            }
+        }
+
+        &--small {
+            font-size: font-size("body", "sm");
+        }
+    }
+
+    &__text {
+        margin-right: 0.8rem;
+        max-width: 610px; // Limit to two lines when content is using maximum allowed characters
+    }
+
+    &__badge {
+        background-color: color("white");
+        color: $theme-color-beta-green;
+        font-size: font-size("body", "md");
+        font-weight: $theme-font-weight-bold;
+        margin-right: 1.25rem;
+        text-transform: uppercase;
+        border-radius: 6px;
+        padding: 6.4px 11.2px 4.8px;
+    }
+
+    &__return-text {
+        position: relative;
+        padding-left: 30px;
+        display: none;
+        margin-left: auto;
+
+        @include at-media("desktop") {
+            display: inline-block;
+        }
+    }
+
+    &__return-icon {
+        width: 15px;
+        height: auto;
+        position: absolute;
+        top: 1px;
+        left: 5px;
+    }
+
+    &__link {
+        &.usa-link {
+            &,
+            &:visited {
+                color: color("white");
+            }
+
+            &:hover,
+            &:active {
+                color: $theme-color-primary-alt-light;
+            }
+        }
+
+        &:focus {
+            outline: $theme-outline-alt;
+        }
+    }
+
+    &__dropdown {
+        display: inline-block;
+        margin-left: auto;
+
+        @include at-media("desktop") {
+            display: none;
+        }
+    }
+
+    &__dropdown-button {
+        height: 48px;
+        width: 48px;
+        background: none;
+        border: none;
+        display: flex;
+        padding: 0;
+        margin: units(-1);
+        margin-right: units(-2);
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+
+            svg {
+                color: $theme-color-primary-alt-light;
+            }
+        }
+
+        // :enabled:focus overrides the default button focus outline style.
+        &:enabled:focus {
+            outline: units("05") solid $theme-color-primary-alt-light;
+        }
+    }
+
+    &__dropdown-content {
+        position: absolute;
+        z-index: z-index(400);
+        background-color: $theme-color-beta-green;
+        right: 0;
+        top: 100%;
+        max-width: 320px;
+        width: max-content;
+
+        ul {
+            margin: 0;
+            padding: 12.8px 32px 12.8px 19.2px;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: units(1.5);
+        }
+
+        li:last-child {
+            margin-bottom: units("05");
+        }
+    }
+
+    &__dropdown-icon {
+        color: color("white");
+
+        &--open {
+            transform: rotate(180deg);
+        }
+    }
+}

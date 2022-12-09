@@ -1,7 +1,9 @@
-// Note that the release theme is identical to the ncbi theme,
-// except that the ncbi theme uses USWDS asset paths relative to node_modules.
-// As we're building our assets locally when creating releases, we can use the default asset path settings.
-@forward "release-theme";
+// Note that importing the ncbi theme module directly will use USWDS asset paths relative to node_modules.
+// Whereas here we need to overide them to build our assets locally for releases.
+@use "ncbi-theme" with (
+    $image-path: "../img",
+    $font-path: "../fonts"
+);
 
 // USWDS loaded from node_modules
 @forward "uswds";
@@ -11,6 +13,11 @@
 @import "ncbi-typography";
 
 // Load the custom NCBI style components
+@import "ncbi-components/banner";
+@import "ncbi-components/beta-banner";
+@import "ncbi-components/button";
+@import "ncbi-components/header";
+@import "ncbi-components/nav";
 @import "ncbi-components/site-alert";
 @import "ncbi-components/collection";
 @import "ncbi-components/footer";

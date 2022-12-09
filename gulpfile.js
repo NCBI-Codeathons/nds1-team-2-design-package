@@ -13,6 +13,7 @@ uswds.settings.version = 3;
  */
 
 uswds.paths.src.fonts = "./src/theme/fonts";
+uswds.paths.src.projectSass = "./src/theme/scss";
 
 uswds.paths.dist.css = "./assets/css";
 uswds.paths.dist.fonts = "./assets/fonts";

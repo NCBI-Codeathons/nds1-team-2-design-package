@@ -105,7 +105,13 @@ Your build process should now be able to compile `index.scss` into the NCBI styl
 
 ## Contributing to this package
 
-Override USWDS settings in `/_uswds-theme.scss` or add further custom components in `/ncbi-components`. Make sure to update `styles.scss` with an import to your new component. You can copy and paste components to `index.html` from the USWDS component library to verify that your new styles work.
+Override USWDS settings in `/ncbi-theme.scss` or add further custom components in `/ncbi-components`. Make sure to update `styles.scss` with an import to your new component. You can copy and paste components to `index.html` from the USWDS component library to verify that your new styles work or you can use storybook following the instructions below.
+
+### Running storybook
+
+First run `npm run build`, this will move assets such as fonts and images into the assets folder, then run `npm run watch` along with `npm run storybook`.
+
+Any SCSS changes made will now appear in storybook, note that changes can take 5-10 seconds to display.
 
 ### Commands
 
