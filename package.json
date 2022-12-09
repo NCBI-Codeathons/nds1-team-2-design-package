@@ -13,7 +13,8 @@
     "lint:format": "prettier --check \"**/?(.)*.{md,css,scss,js,ts,tsx,json,yaml,yml,html}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6009",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages -- --out=storybook-static-ghpages"
   },
   "repository": {
     "type": "git",
@@ -37,10 +38,11 @@
     "@storybook/builder-webpack4": "^6.5.14",
     "@storybook/html": "^6.5.14",
     "@storybook/manager-webpack4": "^6.5.14",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.0.13",
     "@uswds/compile": "^1.0.0-beta.3",
-    "babel-loader": "^8.3.0",
     "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.3.0",
     "postcss": "^8.0.0",
     "prettier": "2.8.0",
     "stylelint": "^14.16.0",
