@@ -4,7 +4,8 @@ export default {
     title: "NCBI/Components/Footer",
 };
 
-export const Base = () => formatWithPrettier(`
+export const Base = () =>
+    formatWithPrettier(`
 <footer class="ncbi-footer">
 <div class="ncbi-footer__icon-section">
   <div class="ncbi-footer__social-header">Ea quos at</div>
@@ -290,4 +291,3 @@ export const Base = () => formatWithPrettier(`
 </div>
 </footer>
 `);
-

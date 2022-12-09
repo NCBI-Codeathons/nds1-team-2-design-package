@@ -4,7 +4,8 @@ export default {
     title: "NCBI/Components/Banners",
 };
 
-const Template = () => formatWithPrettier(`
+const Template = () =>
+    formatWithPrettier(`
     <section
     class="usa-banner ncbi-banner ncbi-banner--with-image"
     style="
@@ -71,14 +72,9 @@ const Template = () => formatWithPrettier(`
     </div>
   </section>  
 `);
-    
 
-
-
-
-
-
-const Template2 = () => formatWithPrettier(`
+const Template2 = () =>
+    formatWithPrettier(`
     <section
   class="usa-banner ncbi-banner ncbi-banner--with-image"
   style="
@@ -181,11 +177,8 @@ const Template2 = () => formatWithPrettier(`
 </section>
 `);
 
-
-
-
-
-const Template3 = () => formatWithPrettier(`
+const Template3 = () =>
+    formatWithPrettier(`
 <section class="usa-banner ncbi-banner ncbi-banner--white">
   <div
     data-testid="gridContainer"

@@ -1,4 +1,4 @@
-@use 'uswds-core' as *;
+@use "uswds-core" as *;
 
 .ncbi-beta-banner {
     $root: &;
@@ -10,8 +10,8 @@
         align-items: center;
         margin-top: 0;
         margin-bottom: 0;
-        font-size: font-size('body', 'md');
-        color: color('white');
+        font-size: font-size("body", "md");
+        color: color("white");
 
         // Increase specificity by checking if child of parent class
         // This overrides other grid container class padding styles
@@ -19,13 +19,13 @@
             padding-top: units(1.5);
             padding-bottom: units(1.5);
 
-            @include at-media('desktop') {
+            @include at-media("desktop") {
                 padding-right: units(4);
             }
         }
 
         &--small {
-            font-size: font-size('body', 'sm');
+            font-size: font-size("body", "sm");
         }
     }
 
@@ -35,9 +35,9 @@
     }
 
     &__badge {
-        background-color: color('white');
+        background-color: color("white");
         color: $theme-color-beta-green;
-        font-size: font-size('body', 'md');
+        font-size: font-size("body", "md");
         font-weight: $theme-font-weight-bold;
         margin-right: 1.25rem;
         text-transform: uppercase;
@@ -51,7 +51,7 @@
         display: none;
         margin-left: auto;
 
-        @include at-media('desktop') {
+        @include at-media("desktop") {
             display: inline-block;
         }
     }
@@ -68,7 +68,7 @@
         &.usa-link {
             &,
             &:visited {
-                color: color('white');
+                color: color("white");
             }
 
             &:hover,
@@ -86,7 +86,7 @@
         display: inline-block;
         margin-left: auto;
 
-        @include at-media('desktop') {
+        @include at-media("desktop") {
             display: none;
         }
     }
@@ -113,7 +113,7 @@
 
         // :enabled:focus overrides the default button focus outline style.
         &:enabled:focus {
-            outline: units('05') solid $theme-color-primary-alt-light;
+            outline: units("05") solid $theme-color-primary-alt-light;
         }
     }
 
@@ -137,12 +137,12 @@
         }
 
         li:last-child {
-            margin-bottom: units('05');
+            margin-bottom: units("05");
         }
     }
 
     &__dropdown-icon {
-        color: color('white');
+        color: color("white");
 
         &--open {
             transform: rotate(180deg);

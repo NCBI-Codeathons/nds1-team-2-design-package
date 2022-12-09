@@ -1,11 +1,11 @@
-@use 'uswds-core' as *;
+@use "uswds-core" as *;
 
 $nav-link-icon-size: 2.5;
 
 // Overide USWDS styling to align menu items to the left
 /* stylelint-disable declaration-no-important */
 .usa-nav {
-    @include at-media('desktop') {
+    @include at-media("desktop") {
         justify-content: flex-start !important;
         padding-left: 0 !important;
     }
@@ -14,20 +14,20 @@ $nav-link-icon-size: 2.5;
         // Add extra padding to the links in the mobile navigation menu
         // This means they match the padding of the USWDS dropdown links
         a:not(.usa-button) {
-            @include at-media-max('desktop') {
+            @include at-media-max("desktop") {
                 padding: units(1.5) units(2);
             }
         }
 
         // Center the plus and minus icons in the USWDS mobile nav dropdown
         // when the text spans over multiple lines.
-        button[aria-expanded='true'] span::after,
-        button[aria-expanded='false'] span::after {
+        button[aria-expanded="true"] span::after,
+        button[aria-expanded="false"] span::after {
             top: 50%;
             transform: translateY(-50%);
         }
 
-        @include at-media('desktop') {
+        @include at-media("desktop") {
             margin-left: -1rem !important;
 
             button {
@@ -35,72 +35,74 @@ $nav-link-icon-size: 2.5;
 
                 // copy USWDS rules from react-uswds navigation.scss, override it to change background color, svg, border, etc.
                 /* stylelint-disable max-nesting-depth */
-                &[aria-expanded='true'] {
+                &[aria-expanded="true"] {
                     &:focus {
                         outline: none;
-                        border-color: $theme-color-button-border $theme-color-button-border color('white')
+                        border-color: $theme-color-button-border
+                            $theme-color-button-border color("white")
                             $theme-color-button-border;
                     }
 
                     @include at-media($theme-header-min-width) {
-                        @include add-background-svg('usa-icons/expand_less');
+                        @include add-background-svg("usa-icons/expand_less");
                         @include add-knockout-font-smoothing();
                         background-size: units($nav-link-icon-size);
-                        background-color: color('white');
+                        background-color: color("white");
                         background-position: right units(1.5) top 53%;
                     }
                 }
 
-                &[aria-expanded='false'] {
+                &[aria-expanded="false"] {
                     &:focus {
                         outline: none;
-                        border-color: $theme-color-button-border $theme-color-button-border color('white')
+                        border-color: $theme-color-button-border
+                            $theme-color-button-border color("white")
                             $theme-color-button-border;
                     }
 
                     @include at-media($theme-header-min-width) {
-                        @include add-background-svg('usa-icons/expand_more');
+                        @include add-background-svg("usa-icons/expand_more");
                         @include add-knockout-font-smoothing();
                         background-size: units($nav-link-icon-size);
-                        background-color: color('white');
+                        background-color: color("white");
                         background-position: right units(1.5) top 53%;
                     }
                 }
             }
 
             // Hide the default USWDS dropdown icons
-            button[aria-expanded='true'] span::after,
-            button[aria-expanded='false'] span::after {
+            button[aria-expanded="true"] span::after,
+            button[aria-expanded="false"] span::after {
                 display: none;
             }
         }
     }
 
     &__primary-item {
-        @include at-media('desktop') {
+        @include at-media("desktop") {
             position: relative;
             z-index: 1;
 
             a {
-                margin-top: units('05');
+                margin-top: units("05");
             }
         }
     }
 
     &__submenu {
-        @include at-media('desktop') {
+        @include at-media("desktop") {
             z-index: -1;
             left: units(2px);
             padding: units(2);
             width: 294px;
-            background-color: color('white');
+            background-color: color("white");
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     }
 
     &__submenu-item,
     &__link span {
-        font-size: font-size('body', 'sm');
+        font-size: font-size("body", "sm");
     }
 }
 
@@ -108,7 +110,7 @@ $nav-link-icon-size: 2.5;
 // The use of specific :not selectors here matches the way USWDS styles this component in v3.1
 .usa-nav__submenu-item a:not(.usa-button):not(.usa-current) {
     @extend .ncbi-text-body-three;
-    color: color('black');
+    color: color("black");
     padding: units(1) units(1) units(1) units(4);
 }
 
@@ -128,8 +130,8 @@ $nav-link-icon-size: 2.5;
 
     &__link {
         @extend .ncbi-text-nav-link;
-        @include at-media('desktop') {
-            color: color('base-dark') !important;
+        @include at-media("desktop") {
+            color: color("base-dark") !important;
         }
     }
 
@@ -139,7 +141,7 @@ $nav-link-icon-size: 2.5;
         forced-color-adjust: none;
 
         @media (forced-colors: active) {
-            background-color: color('white');
+            background-color: color("white");
         }
 
         &:hover {

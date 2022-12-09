@@ -1,10 +1,10 @@
 import { formatWithPrettier } from "./utils";
 
 export default {
-    title: 'NCBI/Design tokens',
-}
+    title: "NCBI/Design tokens",
+};
 
-export const BackgroundColors = () => (`
+export const BackgroundColors = () => `
 <div class="grid-container">
     <h1>NCBI Theme Colors</h1>
     <p>These are NCBI specific colors used as part of USWDS theme overrides.</p>
@@ -44,4 +44,4 @@ export const BackgroundColors = () => (`
     </div>
     </div>
 </div>
-`);
+`;

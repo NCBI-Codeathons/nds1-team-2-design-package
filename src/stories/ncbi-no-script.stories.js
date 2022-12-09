@@ -4,7 +4,8 @@ export default {
     title: "NCBI/Components/NoScript banner",
 };
 
-export const Base = () => formatWithPrettier(`
+export const Base = () =>
+    formatWithPrettier(`
     <span
         class="usa-site-alert usa-site-alert--emergency ncbi-alert"
         aria-label="Javascript disabled alert"

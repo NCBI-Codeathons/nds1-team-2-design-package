@@ -4,7 +4,10 @@ export default {
     title: "USWDS Components/Standard alerts",
     argTypes: {
         type: {
-            control: { type: "select", options: ["info", "warning", "error", "success"] },
+            control: {
+                type: "select",
+                options: ["info", "warning", "error", "success"],
+            },
             description: "select a type",
         },
     },
@@ -20,8 +23,8 @@ export default {
 const Template = ({ type, heading, body, icon, slim }) => {
     const element = formatWithPrettier(`
     <div class='usa-alert usa-alert--${type} 
-    ${icon ? '' : 'usa-alert--no-icon'}
-    ${slim ? '' : 'usa-alert--slim'}
+    ${icon ? "" : "usa-alert--no-icon"}
+    ${slim ? "" : "usa-alert--slim"}
     '>
         <div class='usa-alert__body'>
         <h3 class='usa-alert__heading'>${heading}</h3>

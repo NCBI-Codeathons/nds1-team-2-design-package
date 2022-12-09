@@ -10,12 +10,12 @@ module.exports = {
     ],
     framework: "@storybook/html",
     // Adds Storybook Composition https://storybook.js.org/docs/react/sharing/storybook-composition
-    "refs": {
-      'design-system': {
-        "title": "USWDS Design System (React)",
-        "url": "https://trussworks.github.io/react-uswds/",
-        "expanded": false // optional, true by default
-      }
+    refs: {
+        "design-system": {
+            title: "USWDS Design System (React)",
+            url: "https://trussworks.github.io/react-uswds/",
+            expanded: false, // optional, true by default
+        },
     },
     // Adds Storybook Composition https://storybook.js.org/docs/react/sharing/storybook-composition
     // "refs": {

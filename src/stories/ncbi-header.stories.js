@@ -4,7 +4,8 @@ export default {
     title: "NCBI/Components/Header",
 };
 
-export const Base = () => formatWithPrettier(`
+export const Base = () =>
+    formatWithPrettier(`
     <header data-testid="header" class="usa-header usa-header--basic">
     <div class="ncbi-header">
         <div class="ncbi-header__container">

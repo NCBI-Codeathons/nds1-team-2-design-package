@@ -4,21 +4,26 @@ export default {
     title: "NCBI/Components/Beta Banner",
     args: {
         text: "Welcome to the beta website! ",
-        linkText: 'Learn more',
-        returnLinkText: 'Return to classic site',
+        linkText: "Learn more",
+        returnLinkText: "Return to classic site",
         slim: false,
         includeBadge: true,
     },
 };
 
-export const Base = ({ text, linkText, returnLinkText, includeBadge }) => formatWithPrettier(`
+export const Base = ({ text, linkText, returnLinkText, includeBadge }) =>
+    formatWithPrettier(`
     <div class="ncbi-beta-banner">
     <div
       class="grid-container ncbi-layout__grid-container ncbi-beta-banner__content 
-      ${includeBadge ? 'ncbi-beta-banner__content--small' : ''}"
+      ${includeBadge ? "ncbi-beta-banner__content--small" : ""}"
     >
 
-      ${includeBadge ? '<strong class="ncbi-beta-banner__badge">beta</strong>' : ''}
+      ${
+          includeBadge
+              ? '<strong class="ncbi-beta-banner__badge">beta</strong>'
+              : ""
+      }
       <span class="ncbi-beta-banner__text"
         >${text}
         <a

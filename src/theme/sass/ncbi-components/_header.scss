@@ -1,4 +1,4 @@
-@use 'uswds-core' as *;
+@use "uswds-core" as *;
 
 // Overide USWDS styling to support z-index of child elements
 // (display flex decendents) to usa-overlay.
@@ -6,27 +6,27 @@
 .usa-header {
     z-index: initial;
 
-    @include at-media('desktop') {
+    @include at-media("desktop") {
         z-index: z-index(300);
     }
 }
 
 .ncbi-header {
     z-index: z-index(300);
-    color: color('white');
-    background: color('primary-dark');
+    color: color("white");
+    background: color("primary-dark");
 
     &__container {
-        @include u-display('flex');
+        @include u-display("flex");
         align-items: center;
         justify-content: space-between;
         height: 100px;
-        max-width: units('desktop');
+        max-width: units("desktop");
         padding: 0 units(2.5);
         margin-left: auto;
         margin-right: auto;
 
-        @include at-media('tablet') {
+        @include at-media("tablet") {
             padding: 0 units(4);
         }
     }
@@ -50,12 +50,12 @@
     }
 
     &__logo-container-text {
-        font-size: font-size('body', 10);
-        font-weight: font-weight('bold');
+        font-size: font-size("body", 10);
+        font-weight: font-weight("bold");
         text-decoration: none;
 
         &:visited {
-            color: color('white');
+            color: color("white");
         }
 
         &:hover {
@@ -65,7 +65,7 @@
 
     &__content {
         &--mobile {
-            @include u-display('flex');
+            @include u-display("flex");
             @include at-media($theme-header-min-width) {
                 display: none;
             }
@@ -74,7 +74,7 @@
         &--desktop {
             display: none;
             @include at-media($theme-header-min-width) {
-                @include u-display('flex');
+                @include u-display("flex");
             }
         }
     }
@@ -101,15 +101,15 @@
 
 .ncbi-search-panel {
     z-index: z-index(300);
-    background: color('primary-darker');
+    background: color("primary-darker");
     padding: units(2) 0;
 
     &__container {
-        @include u-display('flex');
-        @include u-flex('column', 'wrap', 'align-stretch');
+        @include u-display("flex");
+        @include u-flex("column", "wrap", "align-stretch");
         justify-content: center;
         height: units(15);
-        max-width: units('desktop');
+        max-width: units("desktop");
         padding: 0 units(4);
         margin-left: auto;
         margin-right: auto;
@@ -119,7 +119,7 @@
         // Prevent USWDS overriding form styling with media query
         max-width: none !important; /* stylelint-disable-line declaration-no-important */
 
-        input[type='search'] {
+        input[type="search"] {
             @extend .ncbi-text-body-one;
         }
     }
@@ -127,6 +127,6 @@
     &__help-text {
         @extend .ncbi-text-body-three;
         margin: units(1) 0 0 0;
-        color: color('white');
+        color: color("white");
     }
 }

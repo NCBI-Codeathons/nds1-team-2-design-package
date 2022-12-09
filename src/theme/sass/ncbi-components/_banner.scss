@@ -1,8 +1,8 @@
-@use 'uswds-core' as *;
+@use "uswds-core" as *;
 
 .ncbi-banner {
     $root: &;
-    background-color: color('primary-darker');
+    background-color: color("primary-darker");
     margin-bottom: units(6);
 
     &--white {
@@ -14,7 +14,7 @@
             background-color: color($theme-body-background-color);
             color: color($theme-text-color);
 
-            @include at-media('tablet') {
+            @include at-media("tablet") {
                 padding: units(4) 0 units(2);
             }
         }
@@ -24,7 +24,7 @@
         #{$root}__container {
             padding: units(6) units(2.5);
 
-            @include at-media('tablet') {
+            @include at-media("tablet") {
                 padding: units(6) units(4);
             }
         }
@@ -32,7 +32,7 @@
         #{$root}__box {
             padding: units(2) units(3);
 
-            @include at-media('tablet') {
+            @include at-media("tablet") {
                 padding: units(4) units(5);
             }
         }
@@ -65,10 +65,10 @@
         position: relative;
         padding: units(2.5) 0;
         max-width: 47rem;
-        background-color: color('primary-darker');
-        color: color('white');
+        background-color: color("primary-darker");
+        color: color("white");
 
-        @include at-media('tablet') {
+        @include at-media("tablet") {
             padding: units(8) 0 units(5) 0;
         }
     }
@@ -84,7 +84,7 @@
     &__section-summary-list-link {
         &,
         &:visited {
-            color: color('white');
+            color: color("white");
         }
 
         &:hover {
@@ -94,11 +94,11 @@
         &--dark {
             &,
             &:visited {
-                color: color('primary');
+                color: color("primary");
             }
 
             &:hover {
-                color: color('primary-darker');
+                color: color("primary-darker");
             }
         }
     }
