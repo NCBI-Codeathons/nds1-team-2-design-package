@@ -1,0 +1,102 @@
+@use 'uswds-core' as *;
+
+.usa-button {
+    // When using `<InternalLink>` or `<ExternalLink>` components as buttons,
+    // we need to override the styling so they're less like links and more
+    // like buttons.
+    &.usa-link {
+        text-decoration: none;
+
+        &,
+        &:focus,
+        &:hover,
+        &:active,
+        &:visited {
+            color: color('white');
+        }
+    }
+}
+
+.ncbi-button {
+    @extend .ncbi-text-button;
+
+    // Used by the mobile navigation login button
+    // This style rule can be used in combination with the USWDS Link component:
+    // <Link variant="unstyled" className="usa-button usa-button--outline ncbi-button--outline">
+    &--outline {
+        @extend .ncbi-text-button;
+
+        &:hover {
+            background-color: color('primary');
+            color: color('white');
+        }
+
+        &:active {
+            background-color: $theme-active-inverse-button-background;
+            color: color('white');
+        }
+    }
+
+    // Used by the desktop navigation login and search buttons
+    // This style rule can be used in combination with the React USWDS Button and Link components
+    // <Button outline className="ncbi-button--outline-inverse">
+    // <Link variant="unstyled" className="usa-button usa-button--outline ncbi-button--outline-inverse">
+    &--outline-inverse {
+        @extend .ncbi-text-button;
+        display: inline-flex;
+        color: color('white');
+        align-items: center;
+        padding: units(1) units(2);
+        margin: 0 units(1);
+        border-radius: radius($theme-button-border-radius);
+        box-shadow: inset 0 0 0 2px color('white');
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            color: color('primary');
+            background-color: color('white');
+            box-shadow: inset 0 0 0 2px color('primary');
+        }
+
+        &:active {
+            color: color('primary');
+            background-color: $theme-active-inverse-button-background-alt;
+            box-shadow: inset 0 0 0 2px color('primary');
+        }
+
+        &:visited {
+            color: color('white');
+
+            &:hover {
+                color: color('primary');
+            }
+        }
+
+        // [href] overrides the default link focus outline style
+        // :enabled overrides the default button focus outline style, set with :not([disabled])
+        &[href]:focus,
+        &:enabled:focus {
+            outline: $theme-outline-alt;
+            // Matches outline offset of search button with login link
+            outline-offset: units('05');
+        }
+    }
+}
+
+// Override to adjust the positioning of the external link icon in the card buttons
+// line-height of ncbi-button can't be adjusted in this case as it wouldn't match designs when button text goes over multiple lines.
+.usa-link--external.ncbi-button.usa-link--alt {
+    padding-right: units(4);
+
+    &::after {
+        margin-top: 0.1ex;
+        padding-left: 0.5ex;
+    }
+}

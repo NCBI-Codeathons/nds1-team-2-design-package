@@ -1,9 +1,9 @@
-import prettier from 'prettier'
-import HTMLParser from 'prettier/parser-html'
+import prettier from "prettier";
+import HTMLParser from "prettier/parser-html";
 
 export const formatWithPrettier = (component) => {
     return prettier.format(component, {
-        parser: 'html',
+        parser: "html",
         plugins: [HTMLParser],
-    })
-}
+    });
+};
