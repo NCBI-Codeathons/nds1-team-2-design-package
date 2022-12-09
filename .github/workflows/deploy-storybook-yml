@@ -1,0 +1,30 @@
+name: Deploy storybook to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy-storybook:
+    name: Compile and deploy storybook
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up node version
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Create node cache, install if not found
+        id: node-cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/.nvmrc') }}-${{ hashFiles('**/package-lock.json') }}
+      - if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm install --no-audit --no-fund --progress=false
+      - name: Build assets
+        run: npm run build
+      - name: Deploy to github pages
+        run: npm run deploy-storybook -- --ci

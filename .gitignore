@@ -2,3 +2,4 @@ node_modules
 assets
 .DS_store
 storybook-static
+storybook-static-ghpages
