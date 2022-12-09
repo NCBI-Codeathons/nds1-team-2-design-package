@@ -5,7 +5,9 @@
 ### Added
 
 - banner component
+- beta-banner component
 - card component
+- nav component
 
 ## [2.1.0] - 12-08-2022
 
